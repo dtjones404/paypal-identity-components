@@ -42,7 +42,6 @@ export function containerTemplate({ uid, props, tag, context, frame, prerenderFr
         }, 1000);
     });
 
-    // $FlowFixMe
     const { style } = props;
     const { label } = style;
     

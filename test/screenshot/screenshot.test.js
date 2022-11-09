@@ -62,7 +62,7 @@ for (const config of buttonConfigs) {
 
         const { x, y, width, height } = await page.evaluate(async (options) => {
 
-            // $FlowFixMe
+            // $FlowFixMe[incompatible-use]
             document.body.innerHTML = '';
 
             const container = window.document.createElement('div');

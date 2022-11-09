@@ -66,7 +66,7 @@ export function runOnClick<T>(handler : () => T) : T {
     if (didError) {
         throw error;
     } else {
-        // $FlowFixMe
+        // $FlowFixMe[incompatible-return]
         return result;
     }
 }
@@ -272,7 +272,7 @@ export function onWindowOpen({ time = 500 } : {| time? : number |} = {}) : Zalgo
         const documentCreateElement = document.createElement;
         const reset = () => {
             window.open = winOpen;
-            // $FlowFixMe
+            // $FlowFixMe[cannot-write]
             document.createElement = documentCreateElement;
         };
 
@@ -283,7 +283,7 @@ export function onWindowOpen({ time = 500 } : {| time? : number |} = {}) : Zalgo
             return win;
         };
 
-        // $FlowFixMe
+        // $FlowFixMe[cannot-write]
         document.createElement = function docCreateElement(tagName) : HTMLElement {
             const el = documentCreateElement.apply(this, arguments);
 
@@ -346,7 +346,7 @@ type OnElementResizeOptions = {|
     width? : number, height? : number, timeout? : number
 |};
 
-// $FlowFixMe
+// $FlowFixMe[incompatible-exact]
 export function onElementResize(el : HTMLElement, opts? : OnElementResizeOptions = {}) : ZalgoPromise<void> {
     const { width: expectedWidth, height: expectedHeight, timeout = 1000 } = opts;
 
@@ -401,7 +401,7 @@ export function mockProp<T>(namespace : Object, name : string, value : T) : {| c
     return {
         cancel: () => {
             delete namespace[name];
-            // $FlowFixMe
+            // $FlowFixMe[incompatible-call]
             Object.defineProperty(namespace, name, descriptor);
         }
     };

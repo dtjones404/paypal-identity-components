@@ -157,7 +157,7 @@ export function normalizeButtonStyle(props : ?ButtonPropsInputs, style : ButtonS
     }
 
     let ALLOWED_COLORS = [ BUTTON_COLOR.BLACK, BUTTON_COLOR.BLUE, BUTTON_COLOR.DARKBLUE, BUTTON_COLOR.GOLD, BUTTON_COLOR.SILVER, BUTTON_COLOR.WHITE ];
-    // $FlowFixMe
+    // $FlowFixMe[incompatible-use]
     const { fundingSource = FUNDING.PAYPAL } = props;
     if (fundingSource === FUNDING.PAYPAL) {
         ALLOWED_COLORS = [ BUTTON_COLOR.BLACK, BUTTON_COLOR.BLUE, BUTTON_COLOR.DARKBLUE, BUTTON_COLOR.GOLD, BUTTON_COLOR.SILVER, BUTTON_COLOR.WHITE ];
@@ -242,7 +242,7 @@ export function normalizeButtonProps(props : ?ButtonPropsInputs) : RenderButtonP
             throw new Error(`Invalid funding source: ${ fundingSource }`);
         }
     }
-    // $FlowFixMe
+    // $FlowFixMe[incompatible-call]
     style = normalizeButtonStyle(props, style);
     return { clientID, fundingSource, style, locale, env, platform,
         authButtonSessionID, sessionID, nonce, content, customLabel, responseType };
